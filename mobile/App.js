@@ -1,10 +1,13 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import {StateProvider} from './src/contexts/StateContext';
 
 export default () => {
   return (
-    <View>
-      <Text>Funcionou</Text>
-    </View>
+    <StateProvider>
+      <View>
+        <Text>Funcionou</Text>
+      </View>
+    </StateProvider>
   );
 };
