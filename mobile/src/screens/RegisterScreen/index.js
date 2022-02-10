@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import C from './style';
 
@@ -14,6 +14,12 @@ export default () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerTitle: 'Cadastrar',
+    });
+  }, []);
 
   return (
     <C.Container>

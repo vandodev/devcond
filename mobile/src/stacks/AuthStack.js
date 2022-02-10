@@ -9,7 +9,14 @@ const Stack = createStackNavigator();
 
 export default () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#F5F6FA',
+          elevation: 0,
+          shadowOpacity: 0,
+        },
+      }}>
       <Stack.Screen
         name="PreloadScreen"
         component={PreloadScreen}

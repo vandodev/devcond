@@ -1,0 +1,59 @@
+[33mcommit 99b32b6c8a2d50e102e4c6808b841f4c7e556a07[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Thu Feb 10 01:04:05 2022 -0300
+
+    :calendar: Criando estrutura e estilizando tela de cadastro
+
+[33mcommit 189d3746fdc449906550ca5d239fbdda9db984e2[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Thu Feb 10 00:32:57 2022 -0300
+
+    :calendar: Criando logout
+
+[33mcommit 12df0668585e0cb13dcab1fafd95f24d3956fda1[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Wed Feb 9 01:30:58 2022 -0300
+
+    :calendar: Criando sistema de login
+
+[33mcommit 8f8f1366ae77d93a10d8d4f2eca41c2dac71dc48[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Wed Feb 9 01:03:15 2022 -0300
+
+    :calendar: Criando e estilizando campos da tela de login
+
+[33mcommit 30317a24c412b239eb8c1d4dcf5c46300fd17b61[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Wed Feb 9 00:26:36 2022 -0300
+
+    :calendar: Verificando token na tela de preload
+
+[33mcommit ad742af2da060e576ce98f06a7a590c154e5233f[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Wed Feb 9 00:08:45 2022 -0300
+
+    :calendar: Criando o Services/API
+
+[33mcommit 329625714d93fadd4a6c7ee592b63d07eaaa1bc9[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Tue Feb 8 00:31:40 2022 -0300
+
+    :calendar: Criando o NavigationContainer
+
+[33mcommit 67031bbe127457bec62c5c5f262313e9a111d368[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Tue Feb 8 00:12:23 2022 -0300
+
+    :calendar: Criando o context
+
+[33mcommit c831b8bebd25166d69967369385661358581f209[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Mon Feb 7 00:33:27 2022 -0300
+
+    :calendar: Estrutura e dependências
+
+[33mcommit 5cc0a6c94a183cec1bfbfb462c3de2eefb958373[m
+Author: Evandro oliveira <vandoaparecido@hotmail.com>
+Date:   Mon Feb 7 00:08:06 2022 -0300
+
+    :calendar: Criação do projeto
