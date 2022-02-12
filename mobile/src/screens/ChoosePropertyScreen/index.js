@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import C from './style';
 
 import {useStateValue} from '../../contexts/StateContext';
@@ -10,6 +11,17 @@ export default () => {
   const [context, dispatch] = useStateValue();
 
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const checkPropertySel = async () => {
+      let property = await AsyncStorage.getItem('property');
+      if (property) {
+        property = JSON.parse(property);
+      }
+      setLoading(false);
+    };
+    checkPropertySel();
+  }, []);
 
   const handleLogoutButton = async () => {
     await api.logout();
@@ -28,6 +40,13 @@ export default () => {
           <>
             <C.HeadTitle>Olá {context.user.user.name}</C.HeadTitle>
             <C.HeadTitle>Escolha uma das suas propriedades</C.HeadTitle>
+            <C.PropertyList>
+              {context.user.user.properties.map((item, index) => (
+                <C.ButtonArea key={index} onPress={() => chooseProperty(item)}>
+                  <C.ButtonText>{item.name}</C.ButtonText>
+                </C.ButtonArea>
+              ))}
+            </C.PropertyList>
           </>
         )}
 
