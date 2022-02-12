@@ -76,6 +76,15 @@ const MenuButtonText = styled.Text`
 export default props => {
   const navigation = useNavigation();
   const [context, dispatch] = useStateValue();
+
+  const handleChangeUnit = async () => {
+        await AsyncStorage.removeItem('property');
+        navigation.reset({
+            index: 1,
+            routes: [{name: 'ChoosePropertyScreen'}]
+        })
+    }
+    
   return (
     <DrawerArea>
       <DrawerLogoArea>
@@ -86,7 +95,7 @@ export default props => {
       </DrawerLogoArea>
       <DrawerScroller></DrawerScroller>
       <ChangeUnitArea>
-        <ChangeUnitButton onPress={null}>
+        <ChangeUnitButton onPress={handleChangeUnit}>
           <ChangeUnitButtonText>Trocar Unidade</ChangeUnitButtonText>
         </ChangeUnitButton>
       </ChangeUnitArea>
