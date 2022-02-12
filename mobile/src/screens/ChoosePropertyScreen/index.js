@@ -17,6 +17,7 @@ export default () => {
       let property = await AsyncStorage.getItem('property');
       if (property) {
         property = JSON.parse(property);
+        await chooseProperty(property);
       }
       setLoading(false);
     };
@@ -28,6 +29,17 @@ export default () => {
     navigation.reset({
       index: 1,
       routes: [{name: 'LoginScreen'}],
+    });
+  };
+
+  const chooseProperty = async property => {
+    await AsyncStorage.setItem('property', JSON.stringify(property));
+
+    dispatch({type: 'setProperty', payload: {property}});
+
+    navigation.reset({
+      index: 1,
+      routes: [{name: 'MainDrawer'}],
     });
   };
 
