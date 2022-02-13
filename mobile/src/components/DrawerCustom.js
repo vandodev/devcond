@@ -4,6 +4,8 @@ import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import api from '../services/api';
+
 import {useStateValue} from '../contexts/StateContext';
 
 const DrawerArea = styled.View`
@@ -77,14 +79,30 @@ export default props => {
   const navigation = useNavigation();
   const [context, dispatch] = useStateValue();
 
+  const menus = [
+    {title: 'Mural de Avisos', icon: 'inbox', screen: 'WallScreen'},
+    {title: 'Documentos', icon: 'file-text', screen: 'DocumentScreen'},
+    {title: 'Reservas', icon: 'calendar', screen: 'ReservationScreen'},
+    {title: 'Livro de Ocorrências', icon: 'bug', screen: 'WarningScreen'},
+    {title: 'Achados e Perdidos', icon: 'search', screen: 'FoundAndLostScreen'},
+    {title: 'Boletos', icon: 'wpforms', screen: 'BilletScreen'},
+    {title: 'Perfil', icon: 'user', screen: 'ProfileScreen'},
+  ];
+
   const handleChangeUnit = async () => {
-        await AsyncStorage.removeItem('property');
-        navigation.reset({
-            index: 1,
-            routes: [{name: 'ChoosePropertyScreen'}]
-        })
-    }
-    
+    await AsyncStorage.removeItem('property');
+    navigation.reset({
+      index: 1,
+      routes: [{name: 'ChoosePropertyScreen'}],
+    });
+  };
+  const handleLogoutButton = async () => {
+    await api.logout();
+    navigation.reset({
+      index: 1,
+      routes: [{name: 'LoginScreen'}],
+    });
+  };
   return (
     <DrawerArea>
       <DrawerLogoArea>
@@ -93,7 +111,22 @@ export default props => {
           resizeMode="contain"
         />
       </DrawerLogoArea>
-      <DrawerScroller></DrawerScroller>
+      <DrawerScroller>
+        {menus.map((item, index) => (
+          <MenuButton
+            key={index}
+            onPress={() => navigation.navigate(item.screen)}>
+            <MenuSquare></MenuSquare>
+            <Icon name={item.icon} size={20} color={'#666E78'} />
+            <MenuButtonText>{item.title}</MenuButtonText>
+          </MenuButton>
+        ))}
+        <MenuButton onPress={handleLogoutButton}>
+          <MenuSquare></MenuSquare>
+          <Icon name="toggle-left" size={20} color={'#666E78'} />
+          <MenuButtonText>Sair</MenuButtonText>
+        </MenuButton>
+      </DrawerScroller>
       <ChangeUnitArea>
         <ChangeUnitButton onPress={handleChangeUnit}>
           <ChangeUnitButtonText>Trocar Unidade</ChangeUnitButtonText>
