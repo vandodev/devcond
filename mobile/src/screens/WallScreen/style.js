@@ -16,4 +16,7 @@ export default {
     font-size: 15px;
     color: #000;
   `,
+  List: styled.FlatList`
+    flex: 1;
+  `,
 };

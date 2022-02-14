@@ -6,6 +6,8 @@ import C from './style';
 import {useStateValue} from '../../contexts/StateContext';
 import api from '../../services/api';
 
+import WallItem from '../../components/WallItem';
+
 export default () => {
   const navigation = useNavigation();
   const [context, dispatch] = useStateValue();
@@ -26,7 +28,7 @@ export default () => {
     const result = await api.getWall();
     setLoading(false);
     if (result.error === '') {
-      // setWallList(result.list);
+      setWallList(result.list);
     } else {
       alert(result.error);
     }
@@ -39,6 +41,13 @@ export default () => {
           <C.NoListText>Não há avisos.</C.NoListText>
         </C.NoListArea>
       )}
+      <C.List
+        data={wallList}
+        onRefresh={getWall}
+        refreshing={loading}
+        renderItem={({item}) => <WallItem data={item} />}
+        keyExtractor={item => item.id.toString()}
+      />
     </C.Container>
   );
 };
