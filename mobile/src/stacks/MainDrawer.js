@@ -5,6 +5,7 @@ const Drawer = createDrawerNavigator();
 import DrawerCustom from '../components/DrawerCustom';
 
 import WallScreen from '../screens/WallScreen';
+import DocumentScreen from '../screens/DocumentScreen';
 
 export default () => {
   return (
@@ -20,6 +21,7 @@ export default () => {
         },
       }}>
       <Drawer.Screen name="WallScreen" component={WallScreen} />
+      <Drawer.Screen name="DocumentScreen" component={DocumentScreen} />
     </Drawer.Navigator>
   );
 };
