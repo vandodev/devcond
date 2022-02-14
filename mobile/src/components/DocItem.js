@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Linking} from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -21,7 +22,12 @@ const Title = styled.Text`
 `;
 
 export default ({data}) => {
-  const handleClick = async () => {};
+  const handleClick = async () => {
+    const supported = await Linking.canOpenURL(data.fileurl);
+    if (supported) {
+      await Linking.openURL(data.fileurl);
+    }
+  };
 
   return (
     <Box onPress={handleClick}>
