@@ -6,6 +6,7 @@ import DrawerCustom from '../components/DrawerCustom';
 
 import WallScreen from '../screens/WallScreen';
 import DocumentScreen from '../screens/DocumentScreen';
+import BilletScreen from '../screens/BilletScreen';
 
 export default () => {
   return (
@@ -22,6 +23,7 @@ export default () => {
       }}>
       <Drawer.Screen name="WallScreen" component={WallScreen} />
       <Drawer.Screen name="DocumentScreen" component={DocumentScreen} />
+      <Drawer.Screen name="BilletScreen" component={BilletScreen} />
     </Drawer.Navigator>
   );
 };
