@@ -40,7 +40,10 @@ export default ({data}) => {
       <Title>{data.title}</Title>
       <StatusArea>
         <Icon name="inbox" size={24} color="#8B63E7" />
-        <StatusText>{data.status} </StatusText>
+        <StatusText>
+          {data.status === 'IN_REVIEW' && 'Ocorrência em análise'}
+          {data.status === 'RESOLVED' && 'Resolvido'}
+        </StatusText>
       </StatusArea>
     </Box>
   );
