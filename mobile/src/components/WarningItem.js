@@ -32,6 +32,17 @@ const StatusText = styled.Text`
   color: #9c9db9;
   margin-left: 10px;
 `;
+const PhotosArea = styled.View`
+  flex-direction: row;
+`;
+const PhotoItem = styled.TouchableOpacity`
+  margin-right: 10px;
+`;
+const PhotoImage = styled.Image`
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+`;
 
 export default ({data}) => {
   return (
@@ -45,6 +56,15 @@ export default ({data}) => {
           {data.status === 'RESOLVED' && 'Resolvido'}
         </StatusText>
       </StatusArea>
+      {data.photos.length > 0 && (
+        <PhotosArea>
+          {data.photos.map((item, index) => (
+            <PhotoItem key={index} onPress={null}>
+              <PhotoImage source={{uri: item}} resizeMode="cover" />
+            </PhotoItem>
+          ))}
+        </PhotosArea>
+      )}
     </Box>
   );
 };
