@@ -18,6 +18,11 @@ export default () => {
   useEffect(() => {
     navigation.setOptions({
       headerTitle: 'Livro de Ocorrências',
+      headerRight: () => (
+        <C.AddButton onPress={() => navigation.navigate('WarningAddScreen')}>
+          <Icon name="plus" size={24} color="#000" />
+        </C.AddButton>
+      ),
     });
     getWarnings();
   }, []);
