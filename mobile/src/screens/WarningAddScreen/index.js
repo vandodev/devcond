@@ -45,6 +45,12 @@ export default () => {
     );
   };
 
+  const handleDelPhoto = url => {
+    let list = [...photoList];
+    list = list.filter(value => value !== url);
+    setPhotoList(list);
+  };
+
   return (
     <C.Container>
       <C.Scroller>
@@ -63,7 +69,7 @@ export default () => {
             {photoList.map((item, index) => (
               <C.PhotoItem key={index}>
                 <C.Photo source={{uri: item}} />
-                <C.PhotoRemoveButton onPress={null}>
+                <C.PhotoRemoveButton onPress={() => handleDelPhoto(item)}>
                   <Icon name="remove" size={16} color="#FF0000" />
                 </C.PhotoRemoveButton>
               </C.PhotoItem>
