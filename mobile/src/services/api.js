@@ -122,4 +122,21 @@ export default {
     let json = await req.json();
     return json;
   },
+
+  addWarning: async (title, list) => {
+    let token = await AsyncStorage.getItem('token');
+    let property = await AsyncStorage.getItem('property');
+    property = JSON.parse(property);
+    let json = await request(
+      'post',
+      '/warning',
+      {
+        title,
+        list,
+        property: property.id,
+      },
+      token,
+    );
+    return json;
+  },
 };

@@ -51,6 +51,19 @@ export default () => {
     setPhotoList(list);
   };
 
+  const handleSaveWarning = async () => {
+    if (warnText !== '') {
+      const result = await api.addWarning(warnText, photoList);
+      if (result.error === '') {
+        navigation.navigate('WarningScreen');
+      } else {
+        alert(result.error);
+      }
+    } else {
+      alert('Descreva a ocorrência');
+    }
+  };
+
   return (
     <C.Container>
       <C.Scroller>
@@ -77,7 +90,7 @@ export default () => {
           </C.PhotoScroll>
         </C.PhotoArea>
         {loading && <C.LoadingText>Enviando foto...</C.LoadingText>}
-        <C.ButtonArea onPress={null}>
+        <C.ButtonArea onPress={handleSaveWarning}>
           <C.ButtonText>Salvar</C.ButtonText>
         </C.ButtonArea>
       </C.Scroller>
